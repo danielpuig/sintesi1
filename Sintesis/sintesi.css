@@ -12,6 +12,7 @@ and open the template in the editor.
     background-image: url("Space.jpg");
     border-radius: 20px;
     height: 500px;
+    overflow: hidden;
 }
 
 #spaceShip {
@@ -19,4 +20,9 @@ and open the template in the editor.
     width: 100px;
     height: 100px;
     position: absolute;
+}
+
+.enemy {
+    position: absolute;
+    left: 1170px;
 }

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 var key;
+var enemy;
+var i = 1;
 
 $(document).keypress(function (event) {
     key = event.which;
@@ -51,18 +53,38 @@ $(document).keypress(function (event) {
 createAsteroid();
 
 function createAsteroid() {
-    
-    window.setInterval(function(){
+
+    window.setInterval(function () {
         $.ajax({
             type: "POST",
             url: "server.php",
             dataType: "json",
-            data: "top",
-            success: function(respJSON) {
+            data: {
+                "top": "top"
+            },
+            success: function (respJSON) {
                 var position = respJSON.top;
-                alert(position);
+                enemy = "<div><img id ='enemy" + i + "'style='top:" + position + "px' class='enemy' src='starfighter_opt.png'></div>";
+                $("#gameScreen").append(enemy);
+                console.log(position);
+                animateEnemy("#enemy" + i);
+                i++;
             }
-        }); 
+        });
+        
     }, 2000);
-    
+
+}
+
+function animateEnemy(enemy) {
+
+    $(enemy).animate({
+        left: "-90px"
+    }, {
+        duration: 4000,
+        complete: function () {
+            $(enemy).parent().remove();
+        }
+    });
+
 }
