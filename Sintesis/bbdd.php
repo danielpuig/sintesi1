@@ -7,4 +7,5 @@ if(isset($_SESSION["jugadores"])) {
     $_SESSION["jugadores"][$name] = $puntuacion;
 }else {
     $_SESSION["jugadores"] = array (''=>'');
+    $_SESSION["jugadores"][$name] = $puntuacion;
 }

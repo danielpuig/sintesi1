@@ -32,18 +32,19 @@ and open the template in the editor.
                 <input class="form-control" id="name" type="text" placeholder="UserName"/>
                 <button id="send" class="btn btn-default">Start</button>
                 <script>
-                    $("#send").click(
-                            $.ajax({
-                                type: "POST",
-                                url: "bbdd.php",
-                                dataType: "json",
-                                data: {
-                                    "name": $("#name").val()
-                                },
-                                success: function (respJSON) {
-                                    
-                                }
-                            }));
+                    $("#send").click(function () {
+                        $.ajax({
+                            type: "POST",
+                            url: "bbdd.php",
+                            dataType: "json",
+                            data: {
+                                "name": $("#name").val()
+                            },
+                            success: function (respJSON) {
+
+                            }
+                        })
+                    });
                 </script>
             </div>
         </div>
